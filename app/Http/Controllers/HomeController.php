@@ -29,7 +29,7 @@ class HomeController extends Controller
         return $this->_homeServices->LoadHomePageService();
     }
 
-    public function PickAServing(Request $request,$idServing){
-        return $this->_pickServingServices->PickServingService($request,$idServing);
+    public function PickAServing($idServing){
+        return $this->_pickServingServices->PickServingService($idServing);
     }
 }

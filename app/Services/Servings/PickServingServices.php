@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class PickServingServices{
 
-    public function PickServingService(Request $request, $idServing){
+    public function PickServingService($idServing){
         $serving = DB::table('servings')->where('id',$idServing)->first();
         return $serving;
     }
