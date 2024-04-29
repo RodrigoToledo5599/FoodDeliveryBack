@@ -1,10 +1,11 @@
 <?php
 namespace App\Repository\Auth;
 
+use App\RepositoryContracts\Auth\ILoginRepository;
 use Auth;
 
 
-class LoginRepository{
+class LoginRepository implements ILoginRepository{
 
 
     public function GenerateToken($email,$password){
@@ -18,7 +19,6 @@ class LoginRepository{
         }
     }
 
-    // public function
 
 
 

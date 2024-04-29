@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/home',[HomeController::class, 'LoadHomePage']);
+Route::post('/home',[HomeController::class, 'LoadHomePage']);
 Route::get('/serving/{id}',[HomeController::class, 'PickAServing']);
 
 Route::post('/login',[AuthController::class, 'Login']);

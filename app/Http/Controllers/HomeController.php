@@ -25,8 +25,10 @@ class HomeController extends Controller
     }
 
 
-    public function LoadHomePage(){
-        return $this->_homeServices->LoadHomePageService();
+    public function LoadHomePage(Request $request){
+        $email = $request["email"];
+        $password = $request["password"];
+        return $this->_homeServices->LoadHomePageService($email,$password);
     }
 
     public function PickAServing($idServing){

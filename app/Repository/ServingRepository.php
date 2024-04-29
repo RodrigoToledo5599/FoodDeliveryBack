@@ -10,5 +10,10 @@ class ServingRepository implements IServingRepository{
         return $serving;
     }
 
+    public function GetAllServings(){
+        $servings = DB::table('servings')->get();
+        return $servings;
+    }
+
 
 }
