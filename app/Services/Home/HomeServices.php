@@ -13,17 +13,19 @@ class HomeServices{
                          ServingRepository $servingRepo){
         $this->_loginRepo = $loginRepo;
         $this->_servingRepo = $servingRepo;
-        
     }
 
 
 
     public function LoadHomePageService(string $email, string $password){
         $token = $this->_loginRepo->GenerateToken($email,$password);
-        $servings = $this->_servingRepo->GetAllServings();
+        if (isset($token["token"])){
+            return $token;
+        }
+
+        // $servings = $this->_servingRepo->GetAllServings();
         return [
             "token" => $token,
-            "servings" => $servings
         ];
     }
 

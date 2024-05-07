@@ -6,8 +6,6 @@ use Auth;
 
 
 class LoginRepository implements ILoginRepository{
-
-
     public function GenerateToken($email,$password){
         if (Auth::attempt(["email" => $email, "password" => $password])) {
             $user = Auth::user();
@@ -15,7 +13,7 @@ class LoginRepository implements ILoginRepository{
             return ["token"=>$token];
         }
         else{
-            return [$email];
+            return ["usuario nao encontrado"];
         }
     }
 

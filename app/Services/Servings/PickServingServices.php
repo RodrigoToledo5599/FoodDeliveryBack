@@ -2,8 +2,6 @@
 
 namespace App\Services\Servings;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Repository\ServingRepository;
 
 

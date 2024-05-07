@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 
 Route::post('/home',[HomeController::class, 'LoadHomePage']);
-Route::get('/serving/{id}',[HomeController::class, 'PickAServing']);
+Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
 
 Route::post('/login',[AuthController::class, 'Login']);
 Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
+
+Route::get('/anything',function(){
+    return "piruleiba";
+});
