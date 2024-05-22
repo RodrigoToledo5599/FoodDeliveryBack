@@ -14,7 +14,8 @@ class ServingSeeder extends Seeder
      */
     public function run(): void
     {
-
+        function __construct(){}
+        
         Serving::create([
             'Name' => 'Classic Cheeseburger',
             'Price' => 9.99,

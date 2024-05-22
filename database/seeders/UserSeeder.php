@@ -11,8 +11,9 @@ class UserSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
+    public function run(): void{}
+    function __construct(){
+
         User::create([
             'name' => 'John Doe',
             'email' => 'john@example.com',
@@ -20,7 +21,7 @@ class UserSeeder extends Seeder
             'endereco' => '123 Main St',
             'telefone' => '123-456-7890',
         ]);
-
+        
         // Seed 2
         User::create([
             'name' => 'Jane Smith',
@@ -29,7 +30,7 @@ class UserSeeder extends Seeder
             'endereco' => '456 Elm St',
             'telefone' => '456-789-0123',
         ]);
-
+        
         // Seed 3
         User::create([
             'name' => 'Bob Johnson',
@@ -38,7 +39,7 @@ class UserSeeder extends Seeder
             'endereco' => '789 Oak St',
             'telefone' => '789-012-3456',
         ]);
-
+        
         // Seed 4
         User::create([
             'name' => 'Alice Williams',
@@ -47,7 +48,7 @@ class UserSeeder extends Seeder
             'endereco' => '321 Pine St',
             'telefone' => '321-654-0987',
         ]);
-
+        
         // Seed 5
         User::create([
             'name' => 'Michael Brown',

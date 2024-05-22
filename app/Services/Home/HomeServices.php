@@ -20,13 +20,15 @@ class HomeServices{
     public function LoadHomePageService(string $email, string $password){
         $token = $this->_loginRepo->GenerateToken($email,$password);
         if (isset($token["token"])){
-            return $token;
+            $servings = $this->_servingRepo->GetAllServings();
+            return [
+                    "token" => $token["token"],
+                    "servings" => $servings,
+                   ];
         }
-
-        // $servings = $this->_servingRepo->GetAllServings();
-        return [
-            "token" => $token,
-        ];
+        return "deu nao ";
+        
+        
     }
 
 
