@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\AuthController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('/home',[HomeController::class, 'LoadHomePage']);
+Route::get('/home',[HomeController::class, 'LoadHomePage']);
 Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
 
 Route::post('/login',[AuthController::class, 'Login']);

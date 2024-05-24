@@ -15,21 +15,22 @@ class HomeServices{
         $this->_servingRepo = $servingRepo;
     }
 
-
-
-    public function LoadHomePageService(string $email, string $password){
-        $token = $this->_loginRepo->GenerateToken($email,$password);
-        if (isset($token["token"])){
-            $servings = $this->_servingRepo->GetAllServings();
-            return [
-                    "token" => $token["token"],
-                    "servings" => $servings,
-                   ];
-        }
-        return "deu nao ";
-        
-        
+    public function LoadHomePageService(){
+        $servings = $this->_servingRepo->GetAllServings();
+        return $servings;
     }
+
+    // public function LoadHomePageService(string $email, string $password){
+    //     $token = $this->_loginRepo->GenerateToken($email,$password);
+    //     if (isset($token["token"])){
+    //         $servings = $this->_servingRepo->GetAllServings();
+    //         return [
+    //                 "token" => $token["token"],
+    //                 "servings" => $servings,
+    //                ];
+    //     }
+    //     return "deu nao ";
+    // }
 
 
 }
