@@ -1,8 +1,10 @@
 <?php
 
 use Monolog\Handler\NullHandler;
-use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+use App\Logging\CustomizeOutputFormatter;
+use Monolog\Formatter\JsonFormatter;
+use Monolog\Handler\StreamHandler;
 
 return [
 
@@ -93,9 +95,12 @@ return [
             'driver' => 'monolog',
             'level' => env('LOG_LEVEL', 'debug'),
             'handler' => StreamHandler::class,
-            'formatter' => env('LOG_STDERR_FORMATTER'),
+            'formatter' => JsonFormatter::class,
             'with' => [
                 'stream' => 'php://stderr',
+            ],
+            'tap' => [
+                CustomizeOutputFormatter::class,
             ],
         ],
 

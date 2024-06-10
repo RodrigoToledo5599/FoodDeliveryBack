@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,27 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/home',[HomeController::class, 'LoadHomePage']);
-Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
+// Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
+Route::get('/serving/{id}',[HomeController::class, 'PickAServing']);
 
 Route::post('/login',[AuthController::class, 'Login']);
 Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
 
 Route::get('/anything',function(){
-    return "piruleiba";
+    Log::debug('whatever');
+    return "whatever";
+});
+
+Route::post('/test-datadog',function(){
+    // $api_key = 
+    $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+        'DD-API-KEY' => env('DD_API_KEY'),
+    ])->post('https://api.datadoghq.com/api/v1/events',[
+        'title' => 'Test Event from Laravel',
+        'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+        'priority' => 'normal',
+        'tags' => ['laravel', 'testing'],
+    ]);
+
 });

@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Services\Home\HomeServices;
 use App\Services\Servings\PickServingServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -30,6 +31,7 @@ class HomeController extends Controller
     }
 
     public function PickAServing($idServing){
+        Log::debug('Hello, World!');
         return $this->_pickServingServices->PickServingService($idServing);
     }
 }
