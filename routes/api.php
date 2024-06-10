@@ -30,7 +30,6 @@ Route::get('/anything',function(){
 });
 
 Route::post('/test-datadog',function(){
-    // $api_key = 
     $response = Http::withHeaders([
         'Content-Type' => 'application/json',
         'DD-API-KEY' => env('DD_API_KEY'),
