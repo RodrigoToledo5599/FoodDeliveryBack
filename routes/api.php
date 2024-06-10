@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /*
@@ -30,14 +31,20 @@ Route::get('/anything',function(){
 });
 
 Route::post('/test-datadog',function(){
+    $number = 0;
+    $data= [
+        "message" => "aaa " . $number,
+        "requestDate" => date('d/m/Y H:i:s')
+    ];
     $response = Http::withHeaders([
         'Content-Type' => 'application/json',
         'DD-API-KEY' => env('DD_API_KEY'),
     ])->post('https://api.datadoghq.com/api/v1/events',[
         'title' => 'Test Event from Laravel',
-        'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+        'text' => $data["message"],
         'priority' => 'normal',
         'tags' => ['laravel', 'testing'],
     ]);
-
+    DB::table('logsdatadog')->insert($data);
+    return("msg enviada " . $number);
 });
