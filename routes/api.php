@@ -5,6 +5,8 @@ use App\Http\Controllers\User\AuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Monolog\LogRecord;
+use NewRelic\Monolog\Enricher\NewRelicEnricher;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +28,23 @@ Route::post('/login',[AuthController::class, 'Login']);
 Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
 
 Route::get('/anything',function(){
-    Log::debug('whatever');
-    return "whatever";
+    // Log::debug('whatever');
+    throw new Exception('bbbb');
+    return "agora testando oq deu certo";
 });
+
+Route::post('/testnewrelic',function(){
+    $response = Http::withHeaders([
+        'Api-Key' => env('NRELIC_API_KEY'),
+        'Content-Type' => 'application/json',
+        // 'Host' => 'log-api.newrelic.com'
+        ])->post('https://gov-log-api.newrelic.com/log/v1',[
+            'message' => 'deu bom agora'
+        ]);
+        Log::channel('newrelic')->info('This is an info log sent to New Relic!');
+        return $response;
+});
+
 
 Route::post('/test-datadog',function(){
     $number = 0;
