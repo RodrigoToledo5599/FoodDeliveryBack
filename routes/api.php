@@ -41,8 +41,12 @@ Route::post('/testnewrelic',function(){
         ])->post('https://gov-log-api.newrelic.com/log/v1',[
             'message' => 'deu bom agora'
         ]);
-        Log::channel('newrelic')->info('This is an info log sent to New Relic!');
+        Log::channel('stack')->info('This is an info log sent to New Relic!');
         return $response;
+});
+
+Route::post('/testnewrelic2',function(){
+    Log::channel('stack')->info('testando essa nova query');
 });
 
 
