@@ -4,7 +4,8 @@ use Monolog\Handler\NullHandler;
 use Monolog\Handler\SyslogUdpHandler;
 use App\Logging\CustomizeOutputFormatter;
 use Monolog\Formatter\JsonFormatter;
-use Monolog\Handler\StreamHandler;
+use Monolog\Handler;
+
 
 return [
 
@@ -91,18 +92,18 @@ return [
             ],
         ],
 
-        'stderr' => [
-            'driver' => 'monolog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => StreamHandler::class,
-            'formatter' => JsonFormatter::class,
-            'with' => [
-                'stream' => 'php://stderr',
-            ],
-            'tap' => [
-                CustomizeOutputFormatter::class,
-            ],
-        ],
+        // 'stderr' => [
+        //     'driver' => 'monolog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'handler' => StreamHandler::class,
+        //     'formatter' => JsonFormatter::class,
+        //     'with' => [
+        //         'stream' => 'php://stderr',
+        //     ],
+        //     'tap' => [
+        //         CustomizeOutputFormatter::class,
+        //     ],
+        // ],
 
         'syslog' => [
             'driver' => 'syslog',
@@ -122,6 +123,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'newrelic' => [
+            'driver' => 'custom',
+            'handler' => NewRelic\Monolog\Handler::class,
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
     ],
 
 ];
