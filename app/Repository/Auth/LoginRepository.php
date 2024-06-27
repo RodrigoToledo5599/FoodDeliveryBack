@@ -13,7 +13,9 @@ class LoginRepository implements ILoginRepository{
             return ["token"=>$token];
         }
         else{
-            return ["usuario nao encontrado"];
+            return [
+                "token" =>"usuario nao encontrado"
+            ];
         }
     }
 
