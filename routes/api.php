@@ -14,14 +14,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+#testing stuff =================================================================================
+Route::get('/anything',function(){ return "piruleiba";});
+Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
+#===============================================================================================
 
 
-Route::get('/home',[HomeController::class, 'LoadHomePage']);
+
+Route::get('/home',[HomeController::class, 'LoadHomePage'])->middleware("auth:api");
 Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
 
 Route::post('/login',[AuthController::class, 'Login']);
-Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
 
-Route::get('/anything',function(){
-    return "piruleiba";
-});
