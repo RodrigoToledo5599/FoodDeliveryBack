@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class PratosRepository implements IPratosRepository{
     public function PickPrato($idPrato){
-        $prato = DB::table('pratos')->where('id',$idprato)->first();
+        $prato = DB::table('pratos')->where('id',$idPrato)->first();
         return $prato;
     }
 

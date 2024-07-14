@@ -13,12 +13,12 @@ class PickPratosServices{
     }
 
 
-    public function PickPratosService($idPratos){
-        $pratos = $this->_pratosRepo->PickPratos($idPratos);
+    public function PickPratosService($idPrato){
+        $pratos = $this->_pratosRepo->PickPrato($idPrato);
         return $pratos;
     }
 
-    public function ChoosePedidoService($idPratos,$idUser){
+    public function ChoosePedidoService($idPrato,$idUser){
         
     }
 }
