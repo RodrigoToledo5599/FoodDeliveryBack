@@ -10,7 +10,7 @@ class Pedido{
 
     protected $fillable = [
         'EntregaID',
-        'ServingID',
+        'PratoID',
         'UserID'
     ];
 

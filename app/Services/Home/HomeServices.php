@@ -3,30 +3,30 @@
 namespace App\Services\Home;
 
 use App\Repository\Auth\LoginRepository;
-use App\Repository\ServingRepository;
+use App\Repository\PratosRepository;
 
 
 class HomeServices{
-    protected $_servingRepo;
+    protected $_pratoRepo;
     protected $_loginRepo;
     function __construct(LoginRepository $loginRepo,
-                         ServingRepository $servingRepo){
+                         PratosRepository $pratoRepo){
         $this->_loginRepo = $loginRepo;
-        $this->_servingRepo = $servingRepo;
+        $this->_pratoRepo = $pratoRepo;
     }
 
     public function LoadHomePageService(){
-        $servings = $this->_servingRepo->GetAllServings();
-        return $servings;
+        $pratos = $this->_pratoRepo->GetAllpratos();
+        return $pratos;
     }
 
     // public function LoadHomePageService(string $email, string $password){
     //     $token = $this->_loginRepo->GenerateToken($email,$password);
     //     if (isset($token["token"])){
-    //         $servings = $this->_servingRepo->GetAllServings();
+    //         $pratos = $this->_pratoRepo->GetAllpratos();
     //         return [
     //                 "token" => $token["token"],
-    //                 "servings" => $servings,
+    //                 "pratos" => $pratos,
     //                ];
     //     }
     //     return "deu nao ";

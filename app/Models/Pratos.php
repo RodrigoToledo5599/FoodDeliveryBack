@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class Serving extends Model{
+class Pratos extends Model{
     use HasFactory, Notifiable,HasApiTokens;
     protected $fillable = [
         'Name',

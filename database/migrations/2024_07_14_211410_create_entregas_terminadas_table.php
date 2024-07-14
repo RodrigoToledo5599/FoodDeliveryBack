@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('entregas_terminadas', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('UserID');
             $table->foreign('UserID')->references('id')->on('users');
             $table->unsignedBigInteger('EntregaID');
             $table->foreign('EntregaID')->references('id')->on('entregas');
-            $table->unsignedBigInteger('ServingID');
-            $table->foreign('ServingID')->references('id')->on('servings');
-
+            $table->string('Address');
+            $table->decimal('Price',total:5,places:2);
+            $table->boolean('Entregue');
+            $table->boolean('SaiuParaEntrega');
+            $table->boolean('EntregaCancelada');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('entregas_terminadas');
     }
 };

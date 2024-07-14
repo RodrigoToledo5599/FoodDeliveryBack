@@ -5,7 +5,7 @@ namespace App\RepositoryContracts;
 
 interface IPedidoRepository{
 
-    public function MakePedido(string $idUser, string $idServing);
+    public function MakePedido(string $idUser, string $idPrato);
 
 
 }

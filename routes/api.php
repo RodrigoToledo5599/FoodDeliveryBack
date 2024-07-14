@@ -22,7 +22,7 @@ Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
 
 
 Route::get('/home',[HomeController::class, 'LoadHomePage'])->middleware("auth:api");
-Route::get('/serving/{id}',[HomeController::class, 'PickAServing'])->middleware("auth:api");
+Route::get('/prato/{id}',[HomeController::class, 'PickAPrato'])->middleware("auth:api");
 
 Route::post('/login',[AuthController::class, 'Login']);
 

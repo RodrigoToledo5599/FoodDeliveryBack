@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('servings', function (Blueprint $table) {
+        Schema::create('pratos', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
             $table->decimal('Price',total:5,places:2);
