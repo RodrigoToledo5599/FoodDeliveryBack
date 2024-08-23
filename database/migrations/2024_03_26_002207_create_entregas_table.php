@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('entregas', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('UserID');
-            $table->foreign('UserID')->references('id')->on('users');
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
             $table->string('Address');
-            $table->decimal('Price',total:5,places:2);
-            $table->boolean('Entregue');
-            $table->boolean('SaiuParaEntrega');
-            $table->boolean('EntregaCancelada');
+            $table->decimal('price',total:5,places:2);
+            $table->boolean('saiuParaEntrega');
+            $table->boolean('entregaCancelada');
 
             $table->timestamps();
         });

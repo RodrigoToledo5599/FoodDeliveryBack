@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('pratos_das_entregas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('PratoID');
-            $table->foreign('PratoID')->references('id')->on('pratos');
-            $table->unsignedBigInteger('EntregaID');
-            $table->foreign('EntregaID')->references('id')->on('entregas');
-            $table->decimal('Price',total:5,places:2);
+            $table->unsignedBigInteger('pratoId');
+            $table->foreign('pratoId')->references('id')->on('pratos');
+            $table->unsignedBigInteger('entregaId');
+            $table->foreign('entregaId')->references('id')->on('entregas');
+            $table->decimal('price',total:5,places:2);
 
         });
     }

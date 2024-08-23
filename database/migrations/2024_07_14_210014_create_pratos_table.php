@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pratos', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
-            $table->decimal('Price',total:5,places:2);
-            $table->string('Description');
+            $table->string('name');
+            $table->decimal('price',total:5,places:2);
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -25,6 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('pratos');
         Schema::dropIfExists('servings');
     }
 };
