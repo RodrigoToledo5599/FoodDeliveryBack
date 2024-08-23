@@ -3,7 +3,7 @@
 namespace App\Services\Servings;
 
 use App\Repository\ServingRepository;
-
+use Illuminate\Support\Facades\Log;
 
 class PickServingServices{
 
@@ -15,6 +15,11 @@ class PickServingServices{
 
     public function PickServingService($idServing){
         $serving = $this->_servingRepo->PickServing($idServing);
+        if($serving == null){
+            Log::error('Serving not found');
+            return "null e.e";
+        }
+        Log::warning("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC, " . $serving->Name);
         return $serving;
     }
 

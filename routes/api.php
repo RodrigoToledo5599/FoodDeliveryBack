@@ -29,8 +29,10 @@ Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
 
 Route::get('/anything',function(){
     // Log::debug('whatever');
-    throw new Exception('bbbb');
-    return "agora testando oq deu certo";
+    // Log::channel('newrelic')->info('testando aq');
+    Log::error('testando se aparece algo');
+    // throw new Exception('gagareqwfdasea');
+    // return "agora testando oq deu certo";
 });
 
 Route::post('/testnewrelic2',function(){
