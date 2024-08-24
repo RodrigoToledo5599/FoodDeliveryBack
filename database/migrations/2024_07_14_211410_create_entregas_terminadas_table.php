@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('entregas_terminadas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('UserID');
-            $table->foreign('UserID')->references('id')->on('users');
-            $table->unsignedBigInteger('EntregaID');
-            $table->foreign('EntregaID')->references('id')->on('entregas');
-            $table->string('Address');
-            $table->decimal('Price',total:5,places:2);
-            $table->boolean('Entregue');
-            $table->boolean('SaiuParaEntrega');
-            $table->boolean('EntregaCancelada');
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
+            $table->unsignedBigInteger('entregaId');
+            $table->foreign('entregaId')->references('id')->on('entregas');
+            $table->string('address');
+            $table->decimal('price',total:5,places:2);
+            $table->boolean('entregaCancelada');
             $table->timestamps();
         });
     }
