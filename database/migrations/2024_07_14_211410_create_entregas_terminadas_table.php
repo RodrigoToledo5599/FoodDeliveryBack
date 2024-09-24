@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('entregas_terminadas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userId');
-            $table->foreign('userId')->references('id')->on('users');
-            $table->unsignedBigInteger('entregaId');
-            $table->foreign('entregaId')->references('id')->on('entregas');
+            $table->foreign('userId')->references('id')->on('users');   
             $table->string('address');
             $table->decimal('price',total:5,places:2);
             $table->boolean('entregaCancelada');

@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\PedidosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 #testing stuff =================================================================================
 Route::get('/anything',function(){ return "piruleiba";});
 Route::get('/test',[AuthController::class, 'TestAuth'])->middleware('auth:api');
+Route::post('/testing-redis',[PedidosController::class, 'TestingRedis']);
 #===============================================================================================
 
 
@@ -28,3 +30,4 @@ Route::get('/prato/{id}',[HomeController::class, 'PickAPrato'])->middleware("aut
 Route::post('/login',[AuthController::class, 'Login']);
 
 Route::post('/create-account',[UserController::class, 'CreateAccount']);
+

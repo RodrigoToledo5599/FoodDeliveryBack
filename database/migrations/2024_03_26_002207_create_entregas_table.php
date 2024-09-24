@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('Address');
             $table->decimal('price',total:5,places:2);
             $table->boolean('saiuParaEntrega');
-            $table->boolean('entregaCancelada');
 
             $table->timestamps();
         });

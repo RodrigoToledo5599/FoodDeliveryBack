@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
-
 use App\Services\Home\HomeServices;
 use App\Services\Pratos\PickPratosServices;
 use Illuminate\Http\Request;
-
-
-
-
 
 class HomeController extends Controller
 {

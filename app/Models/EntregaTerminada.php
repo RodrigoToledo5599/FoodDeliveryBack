@@ -6,15 +6,15 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 
 
-class Entrega {
+class EntregaTerminada {
 
     protected $fillable = [
         'userId',
         'address',
         'price',
-        'saiuParaEntrega',
+        'entregaCancelada'
     ];
 
-    protected $table = 'entregas';
+    protected $table = 'entregas_terminadas';
 
 }

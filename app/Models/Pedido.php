@@ -9,11 +9,11 @@ use Illuminate\Notifications\Notifiable;
 class Pedido{
 
     protected $fillable = [
-        'EntregaID',
-        'PratoID',
-        'UserID'
+        'entregaId',
+        'pratoId',
+        'userId'
     ];
 
-
+    protected $table = 'pedidos';
 
 }

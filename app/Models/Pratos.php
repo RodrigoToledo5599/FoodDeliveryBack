@@ -15,10 +15,10 @@ use Illuminate\Database\Eloquent\Model;
 class Pratos extends Model{
     use HasFactory, Notifiable,HasApiTokens;
     protected $fillable = [
-        'Name',
-        'Price',
-        'Description'
+        'name',
+        'price',
+        'description'
     ];
 
-
+    protected $table = 'pratos';
 }
