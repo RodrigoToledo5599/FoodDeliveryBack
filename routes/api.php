@@ -5,6 +5,7 @@ use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\PedidosController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redis;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,12 @@ Route::get('/prato/{id}',[HomeController::class, 'PickAPrato'])->middleware("aut
 Route::post('/login',[AuthController::class, 'Login']);
 
 Route::post('/create-account',[UserController::class, 'CreateAccount']);
+
+
+Route::get('/testing-pubsub', function(){
+    $redis = Redis::connection("default");
+    $redis->publish('test-channel', json_encode([
+        'name' => 'Adam Wathan'
+    ]));
+});
 
