@@ -27,9 +27,9 @@ class testingpubsub extends Command
     public function handle()
     {
         $redis = Redis::connection("default");
-        $redis->subscribe(['test-channel'], function (string $message) {
-            dd($message);
-            echo $message;
+        $redis->subscribe('test-channel', function(){
+            echo("fudeu");
+            // return $message;
         });
     }
 }
