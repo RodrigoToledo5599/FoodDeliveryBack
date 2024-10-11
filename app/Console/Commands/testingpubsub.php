@@ -28,7 +28,7 @@ class testingpubsub extends Command
     {
         $redis = Redis::connection("default");
         $redis->subscribe('test-channel', function(){
-            echo("fudeu");
+            echo("dawdawdaw");
             // return $message;
         });
     }
